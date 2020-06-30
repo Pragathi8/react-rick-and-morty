@@ -128,14 +128,21 @@ export const applyFilterFail = error => {
 export const applyFilter = filters => {
   return dispatch => {
     dispatch(applyFilterStart());
-    let queryParam = "?";
-    for (const filter in filters) {
-      if (filters[filter].length) {
-        queryParam += `${filter}=${filters[filter]}&`;
+    const searchParams = new URLSearchParams();
+    for (const key of Object.keys(filters)) {
+      const param = filters[key];
+      if (Array.isArray(param)) {
+        for (const p of param) {
+          searchParams.append(key, p);
+        }
+      } else {
+        searchParams.append(key, param);
       }
     }
     axios
-      .get(`/character/${queryParam}`)
+      .get("/character/", {
+        params: searchParams
+      })
       .then(res => {
         dispatch(applyFilterSuccess(res.data.results));
       })

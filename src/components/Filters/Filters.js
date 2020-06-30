@@ -22,7 +22,6 @@ class Filters extends Component {
     }
     this.setState({ appliedFilters: filters });
     this.props.onSelectingFilters(this.state.appliedFilters);
-    console.log(this.state.appliedFilters);
   };
 
   render() {

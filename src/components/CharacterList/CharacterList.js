@@ -5,7 +5,6 @@ import * as actions from "../../store/actions/index";
 import Spinner from "../../UI/Spinner/Spinner";
 import withErrorHandler from "../../hoc/WithErrorHandler/withErrorHandler";
 import axios from "../../axios-orders";
-// import classes from "./CharacterList.module.scss";
 import Filters from "../Filters/Filters";
 
 class CharacterList extends Component {

@@ -12,7 +12,8 @@ const characterDetails = props => {
     gender,
     origin,
     location,
-    image
+    image,
+    created
   } = props.character;
   return (
     <div className="card bg-dark text-light">
@@ -24,7 +25,11 @@ const characterDetails = props => {
         species={species}
         gender={gender}
       />
-      <CharacterHistoryDetails origin={origin} location={location} />
+      <CharacterHistoryDetails
+        origin={origin}
+        location={location}
+        created={created}
+      />
     </div>
   );
 };
