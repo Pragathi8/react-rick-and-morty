@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Filter from "../../components/Filter/Filter";
+import Filter from "./Filter/Filter";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
 
