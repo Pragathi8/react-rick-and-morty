@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import CharacterCard from "../../components/CharacterCard/CharacterCard";
+import CharacterCard from "../CharacterList/CharacterCard/CharacterCard";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
 import Spinner from "../../UI/Spinner/Spinner";
