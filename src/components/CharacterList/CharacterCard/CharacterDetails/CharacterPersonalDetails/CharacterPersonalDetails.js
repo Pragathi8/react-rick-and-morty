@@ -1,9 +1,10 @@
 import React from "react";
+import classes from "./CharacterPersonalDetails.module.scss";
 
 const characterPersonalDetails = props => {
   const { id, name, status, species, gender } = props;
   return (
-    <div className="card-body">
+    <div className={classes.Body + " card-body"}>
       <h4 className="card-title text-truncate">{name}</h4>
       <h6
         className={`card-subtitle text-uppercase ${
@@ -13,7 +14,7 @@ const characterPersonalDetails = props => {
         }`}
       >{`${status} - ${species}`}</h6>
       <p className="card-text text-info">Id: {id}</p>
-      <p className="card-text text-info mt-1">{gender}</p>
+      <p className="card-text text-info">{gender}</p>
     </div>
   );
 };

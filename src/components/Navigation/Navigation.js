@@ -10,13 +10,13 @@ const navigation = () => {
         classes.Navigation + " row sticky-top d-flex align-items-center"
       }
     >
-      <div className="col-lg-6 col-md-4 col-sm-12">
+      <div className="col-lg-6 col-md-4 col-sm-12 col-12">
         <h1 className={classes.Title}>Ricky Morty</h1>
       </div>
       <div
         className={
           classes.Search +
-          " col-lg-3 col-md-4 col-sm-6 d-flex justify-content-end"
+          " col-lg-3 col-md-4 col-sm-6 col-7 d-flex justify-content-end"
         }
       >
         <Search />
@@ -24,7 +24,7 @@ const navigation = () => {
       <div
         className={
           classes.Navigation +
-          " col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center"
+          " col-lg-3 col-md-4 col-sm-6 col-5 d-flex justify-content-end"
         }
       >
         <SortDropdown />

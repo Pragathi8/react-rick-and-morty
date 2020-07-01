@@ -1,9 +1,10 @@
 import React from "react";
+import classes from "./CharacterHistoryDetails.module.scss";
 
 const characterHistoryDetails = props => {
   const { origin, location, created } = props;
   return (
-    <div className="card-body position-relative">
+    <div className={classes.Body + " card-body position-relative"}>
       {origin && (
         <div className="mb-2">
           <h6 className="mb-0">First seen:</h6>

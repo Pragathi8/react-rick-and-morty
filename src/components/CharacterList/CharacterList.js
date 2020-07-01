@@ -17,7 +17,7 @@ class CharacterList extends Component {
     if (!this.props.loading) {
       characters = this.props.characters.map(character => (
         <div
-          className="col-lg-3 col-md-4 col-sm-6 col-6 p-3"
+          className="col-lg-3 col-md-4 col-sm-6 col-6 p-2"
           key={character.id}
         >
           <CharacterCard character={character} />
@@ -27,14 +27,12 @@ class CharacterList extends Component {
 
     return (
       <>
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-lg-2">
-              <Filters />
-            </div>
-            <div className="col-lg-10">
-              <div className="row">{characters}</div>
-            </div>
+        <div className="row">
+          <div className="col-lg-2">
+            <Filters />
+          </div>
+          <div className="col-lg-10">
+            <div className="row">{characters}</div>
           </div>
         </div>
       </>
