@@ -2,14 +2,6 @@ import React from "react";
 import { Accordion, Card, ListGroup } from "react-bootstrap";
 
 const filter = props => {
-  // const filters = [];
-  // const handleChange = (category, event) => {
-  //   if (event.target.checked) {
-  //     filters.push({ category, value: event.target.value });
-  //   }
-  //   console.log(filters);
-  //   // props.onSelectingFilters(filters);
-  // };
   return (
     <Accordion>
       <Card>

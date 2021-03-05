@@ -1,5 +1,4 @@
 import * as actionTypes from "./actionTypes";
-import axios from "../../axios-orders";
 
 export const fetchCharactersStart = () => {
   return {
@@ -22,21 +21,9 @@ export const fetchCharactersFail = error => {
 };
 
 export const fetchCharacters = () => {
-  return dispatch => {
-    dispatch(fetchCharactersStart());
-    axios
-      .get("/character")
-      .then(res => {
-        dispatch(fetchCharactersSuccess(res.data.results));
-        dispatch(extractSpecies());
-        dispatch(extractGenders());
-        dispatch(extractTypes());
-        dispatch(extractStatus());
-      })
-      .catch(error => {
-        dispatch(fetchCharactersFail(error));
-      });
-  };
+  return {
+    type: actionTypes.FETCH_CHARACTERS_INITIATE
+  }
 };
 
 export const seacrhCharactersStart = searchTerm => {
@@ -61,17 +48,10 @@ export const seacrhCharactersFail = error => {
 };
 
 export const seacrhCharacters = value => {
-  return dispatch => {
-    dispatch(seacrhCharactersStart(value));
-    axios
-      .get(`/character/?name=${value}`)
-      .then(res => {
-        dispatch(seacrhCharactersSuccess(res.data.results));
-      })
-      .catch(error => {
-        dispatch(seacrhCharactersFail(error));
-      });
-  };
+  return {
+    type: actionTypes.SEARCH_CHARACTERS_INITIATE,
+    value
+  }
 };
 
 export const dropdownChange = value => {
@@ -126,28 +106,8 @@ export const applyFilterFail = error => {
 };
 
 export const applyFilter = filters => {
-  return dispatch => {
-    dispatch(applyFilterStart());
-    const searchParams = new URLSearchParams();
-    for (const key of Object.keys(filters)) {
-      const param = filters[key];
-      if (Array.isArray(param)) {
-        for (const p of param) {
-          searchParams.append(key, p);
-        }
-      } else {
-        searchParams.append(key, param);
-      }
-    }
-    axios
-      .get("/character/", {
-        params: searchParams
-      })
-      .then(res => {
-        dispatch(applyFilterSuccess(res.data.results));
-      })
-      .catch(error => {
-        dispatch(applyFilterFail(error));
-      });
-  };
+  return {
+    type: actionTypes.APPLY_FILTERS_INITIATE,
+    filters
+  }
 };

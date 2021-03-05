@@ -3,10 +3,12 @@ import ReactDOM from "react-dom";
 import { createStore, compose, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import createSagaMiddleware from 'redux-saga';
 import thunk from "redux-thunk";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import charactersReducer from "./store/reducers/characters";
+import { watchSagas } from './store/sagas/index'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -21,10 +23,14 @@ const logger = store => {
   };
 };
 
+const sagaMiddleware = createSagaMiddleware();
+
 const store = createStore(
   charactersReducer,
-  composeEnhancers(applyMiddleware(logger, thunk))
+  composeEnhancers(applyMiddleware(logger, thunk, sagaMiddleware))
 );
+
+sagaMiddleware.run(watchSagas);
 
 const app = (
   <Provider store={store}>

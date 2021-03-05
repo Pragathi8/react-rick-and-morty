@@ -1,10 +1,19 @@
 export {
   fetchCharacters,
+  fetchCharactersStart,
+  fetchCharactersSuccess,
+  fetchCharactersFail,
   seacrhCharacters,
+  seacrhCharactersStart,
+  seacrhCharactersSuccess,
+  seacrhCharactersFail,
   dropdownChange,
   extractSpecies,
   extractGenders,
   extractTypes,
   extractStatus,
-  applyFilter
+  applyFilter,
+  applyFilterStart,
+  applyFilterSuccess,
+  applyFilterFail
 } from "./characters";

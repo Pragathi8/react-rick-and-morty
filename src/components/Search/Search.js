@@ -1,45 +1,42 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
 import withErrorHandler from "../../hoc/WithErrorHandler/withErrorHandler";
 import axios from "../../axios-orders";
 
-class Search extends Component {
-  state = {
-    searchTerm: ""
+const Search = props => {
+
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleOnChange = event => {
+    setSearchTerm(event.target.value);
   };
 
-  handleOnChange = event => {
-    this.setState({ searchTerm: event.target.value });
-  };
-
-  search(value) {
-    this.props.onSearch(value);
+  const search = (value) => {
+    props.onSearch(value);
   }
 
-  render() {
-    return (
-      <div className="input-group">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Search..."
-          value={this.state.searchTerm}
-          onChange={this.handleOnChange}
-        />
-        <div className="input-group-append">
-          <button
-            className="btn btn-outline-secondary"
-            type="button"
-            id="button-addon2"
-            onClick={() => this.search(this.state.searchTerm)}
-          >
-            Search
+  return (
+    <div className="input-group">
+      <input
+        type="text"
+        className="form-control"
+        placeholder="Search..."
+        value={searchTerm}
+        onChange={handleOnChange}
+      />
+      <div className="input-group-append">
+        <button
+          className="btn btn-outline-secondary"
+          type="button"
+          id="button-addon2"
+          onClick={() => search(searchTerm)}
+        >
+          Search
           </button>
-        </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 const mapDispatchToProps = dispatch => {
