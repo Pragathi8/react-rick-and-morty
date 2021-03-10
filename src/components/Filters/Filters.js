@@ -3,7 +3,7 @@ import Filter from "./Filter/Filter";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
 
-const Filters = props => {
+export const Filters = props => {
   const [appliedFilters, setAppliedFilters] = useState({ species: [], gender: [], type: [], status: [] })
 
   const handleFilter = (category, value, checked) => {
